@@ -1,0 +1,15 @@
+---
+description: How to deploy Mandala Evolutivo to Vercel without the daily Not authorized failure
+---
+
+# Vercel deploy
+
+Do not run `vercel --prod`, `vercel login`, or `vercel link` for routine deploys.
+
+`vercel login` OAuth expires in ~12 hours. `vercel link` / `vercel env pull` write `VERCEL_OIDC_TOKEN` into `.env.local`, which also expires in ~12 hours. Either one makes the next `vercel --prod` fail with `Error: Not authorized`.
+
+One-time on this machine: `npm run deploy:setup` (Full Account token in the Windows user env, never in `.env.local` or chat). Team/project tokens make the CLI fail with `User not found (404)`.
+
+Every production deploy: `npm run deploy:prod`.
+
+Never add `VERCEL_TOKEN` or `VERCEL_OIDC_TOKEN` to `.env.local`. If `vercel link` rewrites that file, strip `VERCEL_OIDC_TOKEN` before deploying.

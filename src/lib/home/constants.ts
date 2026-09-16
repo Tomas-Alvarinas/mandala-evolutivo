@@ -1,0 +1,2 @@
+export const HOME_PENDING_WORK_LIMIT = 8;
+export const HOME_RECENT_CLIENTS_LIMIT = 6;

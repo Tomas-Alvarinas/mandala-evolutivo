@@ -1,26 +1,144 @@
 @import "tailwindcss";
 
+/*
+  Mandala Evolutivo — design tokens (UI web only).
+  Identity: warm beige + terracotta, editorial, quiet.
+  Existing names (--background, --card, --accent, …) stay as aliases.
+*/
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f6f1ea;
+  --surface: #fffcf8;
+  --surface-subtle: #f3ebe3;
+  --card: var(--surface);
+
+  --foreground: #3a312a;
+  --muted: #5e544c;
+
+  --border: #e4d9ce;
+  --border-strong: #cfc0b3;
+
+  --accent: #8a5a44;
+  --accent-hover: #734a38;
+  --accent-active: #643f31;
+  --primary: var(--accent);
+  --primary-hover: var(--accent-hover);
+  --primary-active: var(--accent-active);
+  --primary-foreground: #fffcf8;
+
+  --ring: #c4a090;
+
+  --success: #5c6a4e;
+  --success-background: #eef1e8;
+  --warning: #8a5a44;
+  --warning-soft: #f4ece4;
+  --warning-background: var(--warning-soft);
+  --danger: #8f433c;
+  --danger-hover: #753730;
+  --danger-background: #f6ecea;
+  --info: #5a615c;
+  --info-background: #eef0ec;
+
+  --text-display: 2.25rem;
+  --text-page: 1.875rem;
+  --text-section: 1.25rem;
+  --text-subsection: 1.125rem;
+  --text-body: 1rem;
+  --text-body-sm: 0.875rem;
+  --text-label: 0.875rem;
+  --text-caption: 0.75rem;
+
+  --leading-heading: 1.25;
+  --leading-body: 1.65;
+  --leading-meta: 1.4;
+
+  --space-inline: 0.5rem;
+  --space-control: 0.75rem;
+  --space-card: 1.5rem;
+  --space-block: 1.5rem;
+  --space-section: 2.5rem;
+  --space-page: 2.5rem;
+
+  --radius-control: 0.5rem;
+  --radius-group: 0.75rem;
+  --radius-card: 1rem;
+  --radius-pill: 9999px;
+
+  --shadow-card: 0 1px 2px rgb(58 49 42 / 0.06);
+
+  --control-height: 2.75rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-card: var(--card);
+  --color-surface: var(--surface);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-active: var(--accent-active);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-ring: var(--ring);
+  --color-danger: var(--danger);
+  --color-danger-hover: var(--danger-hover);
+  --color-danger-background: var(--danger-background);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-warning-background: var(--warning-background);
+  --color-success: var(--success);
+  --color-success-background: var(--success-background);
+  --color-info: var(--info);
+  --color-info-background: var(--info-background);
+  --font-sans: var(--font-source-sans);
+  --font-serif: var(--font-source-serif);
+  --shadow-card: 0 1px 2px rgb(58 49 42 / 0.06);
+  --radius-control: 0.5rem;
+  --radius-group: 0.75rem;
+  --radius-card: 1rem;
+  --radius-pill: 9999px;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  line-height: var(--leading-body);
+}
+
+@utility text-display {
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-size: var(--text-display);
+  line-height: var(--leading-heading);
+  letter-spacing: -0.025em;
+  color: var(--foreground);
+}
+
+@utility text-page-title {
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-size: var(--text-page);
+  line-height: var(--leading-heading);
+  letter-spacing: -0.025em;
+  color: var(--foreground);
+}
+
+@utility text-section-title {
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-size: var(--text-section);
+  line-height: var(--leading-heading);
+  letter-spacing: -0.025em;
+  color: var(--foreground);
+}
+
+@utility text-caption {
+  font-size: var(--text-caption);
+  line-height: var(--leading-meta);
+  letter-spacing: 0.04em;
+  color: var(--muted);
 }

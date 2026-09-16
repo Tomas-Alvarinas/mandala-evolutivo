@@ -1,17 +1,27 @@
 {
-  "name": "mandala-temp",
+  "name": "mandala-evolutivo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "deploy:setup": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/setup-vercel-token.ps1",
+    "deploy:prod": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/vercel-prod.ps1"
   },
   "dependencies": {
+    "@google/genai": "^2.19.0",
+    "@sparticuz/chromium": "^149.0.0",
+    "@supabase/ssr": "^0.12.5",
+    "@supabase/supabase-js": "^2.112.4",
     "next": "16.3.3",
+    "pdf-lib": "^1.17.1",
+    "playwright-core": "^1.62.1",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "server-only": "^0.0.1",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
